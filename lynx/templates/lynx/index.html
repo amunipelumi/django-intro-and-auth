@@ -1,3 +1,5 @@
+{% load socialaccount %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,24 +11,37 @@
 </head>
 
 <body>
-    <h1>Hello World!</h1>
-    <hr>
-    <h2>All of my postssss...... !!!!!</h2>
-    <hr>   
+    {% if request.user.is_authenticated %}
 
-    {% for article in articles %}
+        <h1>Hello World!</h1>
+        <hr>
+        <h2>All of my postssss...... !!!!!</h2>
+        <hr>   
 
-    <div class="card" style="width: 18rem;">
-        <div class="card-body">
-        <h5 class="card-title">{{ article.title }}</h5>
-        <br>
-        <p class="card-text">{{ article.created_at }}</p>
-        <a href="{% url 'article' article.id %}" class="btn btn-primary">Preview</a>
+        {% for article in articles %}
+
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+            <h5 class="card-title">{{ article.title }}</h5>
+            <br>
+            <p class="card-text">{{ article.created_at }}</p>
+            <a href="{% url 'article' article.id %}" class="btn btn-primary">Preview</a>
+            </div>
+            <br>
         </div>
-        <br>
-    </div>
 
-    {% endfor %}
+        {% endfor %}
+
+        <a href="{% url 'logout_' %}">Logout</a>
+
+    {% else %}
+
+        <h1>Please Login</h1>
+        <a href="{% provider_login_url 'google' %}">Google Login</a>
+        <br>
+        <a href="{% provider_login_url 'github' %}">GitHub Login</a>
+
+    {% endif %}
 
 </body>
 </html>

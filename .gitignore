@@ -1,2 +1,7 @@
 db.sqlite3 
-
+/venv
+/elevate/__py*
+/fela/__py*
+/lynx/__py*
+client_secret_*
+.env

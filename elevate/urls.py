@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('lynx.urls')),
     path('fela/', include('fela.urls')),
+    path('accounts/', include('allauth.urls')),
 ]
