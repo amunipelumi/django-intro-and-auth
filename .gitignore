@@ -1,7 +1,13 @@
+# db.sqlite3 
+# /venv
+# /elevate/__py*
+# /fela/__py*
+# /lynx/__py*
+# client_secret_*
+# .env
+
 db.sqlite3 
 /venv
-/elevate/__py*
-/fela/__py*
-/lynx/__py*
+/*/__pycache__
 client_secret_*
 .env
